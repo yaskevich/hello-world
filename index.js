@@ -16,11 +16,23 @@ app.get('/form', function (req, res) {
 	res.sendFile(path.join(__dirname, 'form.html'));
 });
 
+app.get('/ajax', function (req, res) {
+	res.sendFile(path.join(__dirname, 'ajax.html'));
+});
+
+app.get('/test.json', function (req, res) {
+	res.json({ "ngram": 'hi' })
+});
+
+
+
 app.get('/proc', function (req, res) {
 	console.log(req.method);
 	 // console.log("GET:", req.query);
 	 // console.log("POST", req.body);
-	 console.log(req.query["cooltext"]);
+	 var be  = req.query["cooltext"];
+	 console.log(be);
+	 // ololo = request(, "search", ngrams=[be]);
 	 res.send('Got it!');
 });
 
